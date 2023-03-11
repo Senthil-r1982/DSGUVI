@@ -5,7 +5,7 @@ import pandas as pd
 from datetime import date
 from io import StringIO
 
-st.title("Tweeter scrape")
+st.title("Twitter scrape")
 # Setting variables to be used below
 maxTweets = 1000
 # Creating list to append tweet data to
@@ -37,9 +37,11 @@ tweets_df2
 
 myDict=tweets_df2.to_dict('list')
 
-server=pymongo.MongoClient('mongodb+srv://vasanl:12345@cluster0.85yph4l.mongodb.net')
-disk=server.DSGUVI
-collection=disk.demotweet
+server=pymongo.MongoClient('mongodb+srv://senthilselvamm1982:12345@senthil.v6hijfq.mongodb.net/')
+disk=server.GUVI
+collection=disk.twitterdemo
+
+collection.insert_one(myDict)
 
 uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
